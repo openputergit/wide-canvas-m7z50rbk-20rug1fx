@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaBot - Next Generation Water Cleaning Robot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #0e7490 100%);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .demo-container {
+            height: 400px;
+            background: #000;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        .testimonial-slider {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .testimonial-slide {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-cyan-600 flex items-center gap-2">
+                    <i class="bi bi-droplet-fill"></i>
+                    AquaBot
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-cyan-600 transition">Features</a>
+                    <a href="#demo" class="text-gray-600 hover:text-cyan-600 transition">Demo</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-cyan-600 transition">Testimonials</a>
+                    <a href="#contact" class="text-gray-600 hover:text-cyan-600 transition">Contact</a>
+                </div>
+                <button class="bg-cyan-600 text-white px-6 py-2 rounded-full hover:bg-cyan-700 transition hidden md:block">
+                    Get Started
+                </button>
+                <button class="md:hidden text-gray-600"><i class="bi bi-list text-2xl"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-white">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        The Future of <span class="text-cyan-200">Water Cleaning</span> is Autonomous
+                    </h1>
+                    <p class="text-xl mb-8 text-cyan-50">
+                        Meet AquaBot, the AI-powered robot that keeps your water crystal clear 24/7
+                    </p>
+                    <div class="flex gap-4">
+                        <button class="bg-white text-cyan-600 px-8 py-3 rounded-full font-semibold hover:bg-cyan-50 transition">
+                            Watch Demo
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 float-animation">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8cm9ib3R8fHx8fHwxNzAwNjE2NjY3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080" 
+                         alt="AquaBot" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
+                Smart Features for Smarter Cleaning
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <i class="bi bi-robot text-4xl text-cyan-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">AI-Powered Navigation</h3>
+                    <p class="text-gray-600">Advanced algorithms ensure complete coverage and optimal cleaning patterns</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <i class="bi bi-sun text-4xl text-cyan-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Solar Charging</h3>
+                    <p class="text-gray-600">Sustainable operation with integrated solar panels for continuous cleaning</p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg">
+                    <i class="bi bi-phone text-4xl text-cyan-600 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-4">Smart Control</h3>
+                    <p class="text-gray-600">Monitor and control through our intuitive mobile application</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20 bg-cyan-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+                See AquaBot in Action
+            </h2>
+            <div class="demo-container rounded-2xl overflow-hidden" id="3d-demo">
+                <!-- Three.js container -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Data Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
+                Real-Time Water Quality
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Water Parameters</h3>
+                    <canvas id="parametersChart"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Cleaning Performance</h3>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-cyan-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
+                What Our Users Say
+            </h2>
+            <div class="testimonial-slider flex overflow-x-auto gap-6 pb-8">
+                <div class="testimonial-slide bg-white p-8 rounded-2xl shadow-lg min-w-[300px] md:min-w-[400px]">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=80&h=80" 
+                             class="w-12 h-12 rounded-full" alt="User">
+                        <div>
+                            <h4 class="font-bold">John Smith</h4>
+                            <p class="text-gray-600">Pool Owner</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"AquaBot has completely transformed how I maintain my pool. It's efficient, reliable, and truly autonomous."</p>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-800">
+                    Get Started with AquaBot
+                </h2>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <label class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border focus:outline-none focus:border-cyan-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 mb-2">Message</label>
+                        <textarea class="w-full px-4 py-3 rounded-lg bg-gray-50 border focus:outline-none focus:border-cyan-500" rows="4"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button class="w-full bg-cyan-600 text-white py-3 rounded-lg font-semibold hover:bg-cyan-700 transition">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">AquaBot</h3>
+                    <p class="text-gray-400">Next generation water cleaning technology</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#demo" class="hover:text-white">Demo</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-cyan-400"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="hover:text-cyan-400"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="hover:text-cyan-400"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 AquaBot. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Charts
+        const parametersCtx = document.getElementById('parametersChart').getContext('2d');
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+
+        // Water Parameters Chart
+        new Chart(parametersCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'pH Levels',
+                    data: [7.2, 7.1, 7.3, 7.4, 7.2, 7.1, 7.3],
+                    borderColor: '#0891b2',
+                    tension: 0.4
+                },
+                {
+                    label: 'Oxygen Levels',
+                    data: [8.5, 8.3, 8.6, 8.8, 8.7, 8.4, 8.6],
+                    borderColor: '#06b6d4',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Performance Chart
+        new Chart(performanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Area Cleaned (m²)',
+                    data: [120, 150, 140, 160, 145, 155, 130],
+                    backgroundColor: '#0891b2'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Feature cards animation
+        gsap.from('.feature-card', {
+            scrollTrigger: {
+                trigger: '.feature-card',
+                start: 'top center',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // Initialize Three.js Scene
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(document.getElementById('3d-demo').offsetWidth, 400);
+        document.getElementById('3d-demo').appendChild(renderer.domElement);
+
+        // Add basic cube for demonstration
+        const geometry = new THREE.BoxGeometry();
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Mobile Menu
+        const menuBtn = document.querySelector('button.md\\:hidden');
+        const mobileMenu = document.createElement('div');
+        mobileMenu.className = 'fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden';
+        mobileMenu.innerHTML = `
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="text-xl font-bold text-cyan-600">Menu</h3>
+                    <button class="text-gray-600"><i class="bi bi-x-lg"></i></button>
+                </div>
+                <nav class="space-y-4">
+                    <a href="#features" class="block text-gray-600 hover:text-cyan-600">Features</a>
+                    <a href="#demo" class="block text-gray-600 hover:text-cyan-600">Demo</a>
+                    <a href="#testimonials" class="block text-gray-600 hover:text-cyan-600">Testimonials</a>
+                    <a href="#contact" class="block text-gray-600 hover:text-cyan-600">Contact</a>
+                </nav>
+            </div>
+        `;
+        document.body.appendChild(mobileMenu);
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+
+        mobileMenu.querySelector('button').addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Close mobile menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
